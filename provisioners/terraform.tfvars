@@ -1,0 +1,8 @@
+ rg = "rg-provisioner-demo"
+ location ="eastus"
+ vnet = "vent-provisioner-demo"
+ subnet = "snet-provisioner-demo"
+ nsg = "nsg-provisioner-demo"
+ pip = "pip-provisioner-demo"
+ nic = "nic-provisioner-demo"
+ vm ="vm-provisioner-demo"
