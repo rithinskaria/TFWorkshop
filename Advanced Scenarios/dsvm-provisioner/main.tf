@@ -37,13 +37,13 @@ resource "azurerm_network_security_group" "nsg" {
   }
 
   security_rule {
-    name                       = "HTTP"
+    name                       = "RDP"
     priority                   = 1002
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
     source_port_range          = "*"
-    destination_port_range     = "80"
+    destination_port_range     = "3389"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
@@ -79,9 +79,9 @@ resource "azurerm_linux_virtual_machine" "vm" {
   name                = var.vm
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
-  size                = "Standard_B1s"
+  size                = "Standard_D8s_v3"
   admin_username      = "azureuser"
-  admin_password      = "XyZaBc@1234" 
+  admin_password      = "@p@55w06d!@DMIN" 
   disable_password_authentication = false
 
   network_interface_ids = [
@@ -90,33 +90,55 @@ resource "azurerm_linux_virtual_machine" "vm" {
 
   os_disk {
     caching              = "ReadWrite"
-    storage_account_type = "Standard_LRS"
+    storage_account_type = "Premium_LRS"
   }
 
-    source_image_reference {
-    publisher = "Canonical"
-    offer     = "ubuntu-24_10"
-    sku       = "server"
-    version   = "24.10.202410090"
+  source_image_reference {
+    publisher = "microsoft-dsvm"
+    offer     = "ubuntu-2204"
+    sku       = "2204-gen2"
+    version   = "24.10.02"
   }
 
   provisioner "remote-exec" {
     inline = [
       "sudo apt-get update -y",
-      "sudo apt-get install apache2 -y",
-      "echo '<h1>Hello Qatar Energy Team!</h1>' | sudo tee /var/www/html/index.html"
+      "sudo DEBIAN_FRONTEND=noninteractive apt-get -y install xfce4",
+      "sudo apt install xfce4-session -y",
+      "sudo apt-get -y install xrdp",
+      "sudo systemctl enable xrdp",
+      "sudo adduser xrdp ssl-cert",
+      "echo xfce4-session > ~/.xsession",
+      "sudo systemctl restart xrdp",
+      "echo 'xRDP and XFCE4 desktop environment installation completed!'"
     ]
 
     connection {
       type        = "ssh"
       user        = "azureuser"
-      password    = "XyZaBc@1234" 
+      password    = "@p@55w06d!@DMIN" 
       host        = azurerm_public_ip.pip.ip_address
-      timeout     = "2m"
+      timeout     = "10m"
     }
   }
 }
 
 output "vm_public_ip" {
+  description = "Public IP address of the Data Science VM"
   value = azurerm_public_ip.pip.ip_address
+}
+
+output "ssh_connection" {
+  description = "SSH connection command"
+  value = "ssh azureuser@${azurerm_public_ip.pip.ip_address}"
+}
+
+output "rdp_connection_info" {
+  description = "RDP connection information"
+  value = {
+    ip_address = azurerm_public_ip.pip.ip_address
+    username   = "azureuser"
+    password   = "@p@55w06d!@DMIN"
+    port       = "3389"
+  }
 }

@@ -1,0 +1,8 @@
+rg       = "rg-dsvm-demo"
+location = "eastus2"
+vnet     = "vnet-dsvm-demo"
+subnet   = "snet-dsvm-demo"
+nsg      = "nsg-dsvm-demo"
+pip      = "pip-dsvm-demo"
+nic      = "vnic-dsvm-demo"
+vm       = "vm-dsvm-demo"
