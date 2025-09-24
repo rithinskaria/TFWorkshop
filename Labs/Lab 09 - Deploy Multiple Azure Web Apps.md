@@ -17,7 +17,7 @@
 ## Folder Structure
 
 ```
-Lab-08-WebApps-With-Modules/
+Lab-09-WebApps-With-Modules/
 ├── main.tf
 ├── variables.tf
 ├── terraform.tfvars
@@ -35,8 +35,8 @@ Lab-08-WebApps-With-Modules/
 
 1. Open VS Code and in the integrated terminal:
    ```bash
-   mkdir Lab-08-WebApps-With-Modules
-   cd Lab-08-WebApps-With-Modules
+   mkdir Lab-09-WebApps-With-Modules
+   cd Lab-09-WebApps-With-Modules
    mkdir -p modules/webapp
    ```
 
