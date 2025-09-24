@@ -4,7 +4,7 @@ A comprehensive hands-on workshop for learning Terraform with Azure, progressing
 
 ## 🎯 Workshop Overview
 
-This workshop provides a structured learning path for mastering Terraform with Azure through 8 progressive labs and a capstone project. Students will learn fundamental concepts, advanced patterns, and real-world best practices for Infrastructure as Code (IaC).
+This workshop provides a structured learning path for mastering Terraform with Azure through 9 progressive labs and a capstone project. Students will learn fundamental concepts, advanced patterns, and real-world best practices for Infrastructure as Code (IaC).
 
 ## 📚 Learning Objectives
 
@@ -19,7 +19,7 @@ By completing this workshop, participants will be able to:
 
 ## 🗂️ Workshop Structure
 
-### Core Labs (8 Labs)
+### Core Labs (9 Labs)
 
 | Lab | Title | Key Concepts | Duration |
 |-----|-------|--------------|----------|
@@ -30,7 +30,8 @@ By completing this workshop, participants will be able to:
 | **05** | [Create a Virtual Machine](./Labs/Lab%2005%20-%20Create%20a%20Virtual%20Machine%20with%20Full%20Resource.md) | Resource dependencies, interpolation, complex infrastructure | 60 min |
 | **06** | [Remote Terraform State](./Labs/Lab%2006%20-%20Remote%20Terraform%20State.md) | Backend configuration, Azure Blob Storage, state isolation | 45 min |
 | **07** | [Deploy Azure Web App Using Data Blocks](./Labs/Lab%2007%20-%20Deploy%20an%20Azure%20Windows%20Web%20App%20Using%20Terraform%20Data%20Blocks.md) | Data sources, referencing existing resources | 45 min |
-| **08** | [Deploy Multiple Web Apps with Modules](./Labs/Lab%2008%20-%20Deploy%20Multiple%20Azure%20Web%20Apps.md) | Terraform modules, reusable components, advanced patterns | 60 min |
+| **08** | [Use Provisioners](./Labs/Lab%2008%20-%20Use%20Provisioners.md) | Terraform provisioners, post-deployment configuration, Linux administration | 60 min |
+| **09** | [Deploy Multiple Web Apps with Modules](./Labs/Lab%2009%20-%20Deploy%20Multiple%20Azure%20Web%20Apps.md) | Terraform modules, reusable components, advanced patterns | 60 min |
 
 ### Capstone Project
 
@@ -90,7 +91,7 @@ Navigate to the `Labs` directory and begin with Lab 01. Each lab builds upon the
 
 ### 4. Workshop Flow
 ```
-Lab 01 → Lab 02 → Lab 03 → Lab 04 → Lab 05 → Lab 06 → Lab 07 → Lab 08 → Capstone
+Lab 01 → Lab 02 → Lab 03 → Lab 04 → Lab 05 → Lab 06 → Lab 07 → Lab 08 → Lab 09 → Capstone
 ```
 
 ## 📋 Workshop Guidelines
@@ -132,8 +133,9 @@ terraform-lab-XX-name/
 - Complex resource dependencies
 - Remote state management
 
-### Advanced (Labs 7-8)
+### Advanced (Labs 7-9)
 - Data sources and existing resource integration
+- Terraform provisioners and post-deployment configuration
 - Terraform modules and reusable components
 - Production patterns
 
@@ -147,12 +149,13 @@ terraform-lab-XX-name/
 | Concept | Introduced In | Reinforced In |
 |---------|---------------|---------------|
 | Resources | Lab 01 | All labs |
-| Variables | Lab 04 | Labs 5-8, Capstone |
+| Variables | Lab 04 | Labs 5-9, Capstone |
 | State Management | Lab 03 | Lab 06 onwards |
-| Data Sources | Lab 07 | Lab 08, Capstone |
-| Modules | Lab 08 | Capstone |
-| Remote State | Lab 06 | Labs 7-8, Capstone |
-| Dependencies | Lab 05 | Labs 7-8, Capstone |
+| Data Sources | Lab 07 | Lab 09, Capstone |
+| Provisioners | Lab 08 | - |
+| Modules | Lab 09 | Capstone |
+| Remote State | Lab 06 | Labs 7-9, Capstone |
+| Dependencies | Lab 05 | Labs 7-9, Capstone |
 | Security Patterns | Capstone | - |
 
 ## 🛠️ Troubleshooting
