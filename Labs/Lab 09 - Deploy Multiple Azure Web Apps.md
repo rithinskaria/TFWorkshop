@@ -1,4 +1,4 @@
-# Lab 08: Deploy Multiple Azure Web Apps with a Shared App Service Plan Using Terraform Modules
+# Lab 09: Deploy Multiple Azure Web Apps with a Shared App Service Plan Using Terraform Modules
 
 ## Objectives
 
